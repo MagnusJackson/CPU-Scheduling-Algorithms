@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="styles.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+                crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+                crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+                crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+        <div class="jumbotron">
+                <div class="container">
+                        <h1 class="text-center" style="margin-top:30px;margin-bottom:30px;">CPU Scheduling Algorithms</h1>
+                </div>
+        </div>
+        <div class="row-header1">
+                <form>
+                        <div class="form-group">
+                                <input id="number" class="col-md-6 offset-3 form-control row-header" type="text" placeholder="Enter the number of Processes">
+                                <br>
+                                <br>
+                                <button class="btn btn-md btn-info row-header col-md-2 push-5" onclick="disp()" id="num_of_process" style="margin:0px auto"
+                                        type="button">Submit</button>
+                        </div>
+                </form>
+        </div>
+        <div class="row-header" id="process" style="display: none;">
+                <div class="container ">
+                        <div class="row row-header text-center" id="first_processes">
+                                <label class="col-md-3 offset-1" for="first_process">First Process:</label>
+                                <input class="col-md-3" id="first_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" value=0 id="first_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row row-header text-center" id="second_processes">
+                                <label class="col-md-3 offset-1" for="second_process">Second Process:</label>
+                                <input class="col-md-3" id="second_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" value=0 id="second_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="third_processes">
+                                <label class="col-md-3" for="third_process">Third Process:</label>
+                                <input class="col-md-3" id="third_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" value=0 id="third_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="fourth_processes">
+                                <label class="col-md-3" for="fourth_process">Fourth Process:</label>
+                                <input class="col-md-3" id="fourth_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" value=0 id="fourth_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="processes">
+                                <label class="col-md-3" for="fifth_process">Fifth Process:</label>
+                                <input class="col-md-3" id="fifth_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" value=0 id="fifth_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="sixth_processes">
+                                <label class="col-md-3" for="sixth_process">Sixth Process:</label>
+                                <input class="col-md-3" id="sixth_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" value=0 id="sixth_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="seventh_processes">
+                                <label class="col-md-3" for="seventh_process">Seventh Process:</label>
+                                <input class="col-md-3" id="seventh_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" value=0 id="seventh_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="eighth_processes">
+                                <label class="col-md-3" for="eighth_process">Eighth Process:</label>
+                                <input class="col-md-3" id="eighth_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" value=0 id="eighth_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="ninth_processes">
+                                <label class="col-md-3" for="ninth_process">Ninth Process:</label>
+                                <input class="col-md-3" id="ninth_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" value=0 id="ninth_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                </div>
+        </div>
+
+
+        <form>
+                <div class=" form-group row" style="margin-top:100px;">
+                        <h2 style="margin-left:15% ">Choose the Scheduling Algoithm:</h2>
+                        <select style="margin-left:30px" id="algo">
+                                <option value="0">None</option>
+                                <option value="1">First Come First Serve</option>
+                                <option value="2">Shortest Job First</option>
+                                <option value="3">Priority Scheduling</option>
+                                <option value="4">Round Scheduling</option>
+                        </select>
+
+                        <button class="btn btn-info btn-md" onclick="algorithm()" style="margin-left:30px" type="button" id="calculate">Calculate</button>
+
+                </div>
+
+        </form>
+
+        <div id="description" class="row-header row" style="display: none;">
+                <div class="col-md-6 push-2">
+                        <h3>The normal average time taken is:</h3>
+                </div>
+                <div class="col-md-4">
+                        <h4 id="ans"></h4>
+                </div>
+                <div class="col-md-6 push-1">
+                        <h3>The process are completed in the order:</h3>
+                </div>
+                <div class="col-md-4">
+                        <h4 id="ans1"></h4>
+                </div>
+                <div class="col-md-6 push-2">
+                        <h3>The Waiting times are:</h3>
+                </div>
+                <div class="col-md-4">
+                        <h4 id="ans2"></h4>
+                </div>
+                <div class="col-md-6 push-2">
+                        <h3>The turn around times are:</h3>
+                </div>
+                <div class="col-md-4">
+                        <h4 id="ans3"></h4>
+                </div>
+                <div class="col-md-6 push-2">
+                        <h3>The average waiting time is:</h3>
+                </div>
+                <div class="col-md-4">
+                        <h4 id="ans4"></h4>
+                </div>
+                <div class="col-md-6 push-2">
+                        <h3>The average turn around time is:</h3>
+                </div>
+                <div class="col-md-4">
+                        <h4 id="ans5"></h4>
+                </div>
+
+        </div>
+
+        <div id="priority_form" class="row-header row" style="display: none;">
+
+                <div class="container ">
+                        <div class="row row-header text-center" id="first_priority">
+                                <label class="col-md-3 offset-1" for="priority_1">First Process Priority:</label>
+                                <input class="col-md-3 offset-1" value=0 id="priority_1" type="text" placeholder="Enter the priority">
+                        </div>
+                        <div class="row row-header text-center" id="second_priority">
+                                <label class="col-md-3 offset-1" for="priority_2">Second Process Priority:</label>
+                                <input class="col-md-3 offset-1" value=0 id="priority_2" type="text" placeholder="Enter the priority">
+                        </div>
+                        <div class="row row-header text-center" id="third_priority">
+                                <label class="col-md-3 offset-1" for="priority_3">Third Process Priority:</label>
+                                <input class="col-md-3 offset-1" value=0 id="priority_3" type="text" placeholder="Enter the priority">
+                        </div>
+                        <div class="row row-header text-center" id="fourth_priority">
+                                <label class="col-md-3 offset-1" for="priority_4">Fourth Process Priority:</label>
+                                <input class="col-md-3 offset-1" value=0 id="priority_4" type="text" placeholder="Enter the priority">
+                        </div>
+                        <div class="row row-header text-center" id="fifth_priority">
+                                <label class="col-md-3 offset-1" for="priority_5">Fifth Process Priority:</label>
+                                <input class="col-md-3 offset-1" value=0 id="priority_5" type="text" placeholder="Enter the priority">
+                        </div>
+                        <div class="row row-header text-center" id="sixth_priority">
+                                <label class="col-md-3 offset-1" for="priority_6">Sixth Process Priority:</label>
+                                <input class="col-md-3 offset-1" value=0 id="priority_6" type="text" placeholder="Enter the priority">
+                        </div>
+                        <div class="row row-header text-center" id="seventh_priority">
+                                <label class="col-md-3 offset-1" for="priority_7">Seventh Process Priority:</label>
+                                <input class="col-md-3 offset-1" value=0 id="priority_7" type="text" placeholder="Enter the priority">
+                        </div>
+                        <div class="row row-header text-center" id="eigth_priority">
+                                <label class="col-md-3 offset-1" for="priority_8">Eighth Process Priority:</label>
+                                <input class="col-md-3 offset-1" value=0 id="priority_8" type="text" placeholder="Enter the priority">
+                        </div>
+                        <div class="row row-header text-center" id="ninth_priority">
+                                <label class="col-md-3 offset-1" for="priority_9">Ninth Process Priority:</label>
+                                <input class="col-md-3 offset-1" value=0 id="priority_9" type="text" placeholder="Enter the priority">
+                        </div>
+                </div>
+        </div>
+
+        <div id="round_form" class="row-header row" style="display: none;">
+
+                <div class="container ">
+                        <div class="row row-header text-center" id="round_quantum_time_div">
+                                <label class="col-md-3 offset-1" for="round_quantum_time">Quantum Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_quantum_time" type="text" placeholder="Enter the quantum time">
+                        </div>
+                        <div class="row row-header text-center" id="round_first_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_1">First Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_1" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_second_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_2">Second Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_2" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_third_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_3">Third Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_3" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_fourth_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_4">Fourth Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_4" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_fifth_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_5">Fifth Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_5" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_sixth_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_6">Sixth Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_6" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_seventh_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_7">Seventh Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_7" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_eigth_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_8">Eighth Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_8" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_ninth_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_9">Ninth Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_9" type="text" placeholder="Enter the arrival time">
+                        </div>
+                </div>
+        </div>
+
+<<footer style="padding: 2% 2% 5% 2%;text-align: center; background-color: black; color: #fff;">
+    <p> <h2>Made by:</h2> <br>18BCE055 - Dhruv Pathak&nbsp;&nbsp;<br>18BCE056 - Dhruvi Shah&nbsp;&nbsp;&nbsp;&nbsp;<br>18BCE032 - Charmi Parmar</p> <br>
+    <!--<div style="margin-top: 20px;">
+    <a href="https://www.facebook.com/saivicky2015" style="padding: 5% 5% 5% 5%;"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+    <a href="https://github.com/highskillzz" style="padding: 5% 5% 5% 5%;"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+
+    <a href="https://www.linkedin.com/in/vikranth-kanumuru-751a73125/" style="padding: 5% 5% 5% 5%;"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+
+</div>-->
+</footer>
+
+</body>
+</html>
+
+        <script src="javascript.js">
+
+        </script>
+</body>
+
+
+</html>
