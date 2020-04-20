@@ -1,8 +1,10 @@
-function disp() {
+function disp() 
+{
     var yourUl = document.getElementById("process");
     yourUl.style.display = yourUl.style.display === 'none' ? '' : 'none';
 }
-function algorithm() {
+function algorithm() 
+{
     var yourUl1 = document.getElementById("description");
     yourUl1.style.display = yourUl1.style.display === 'none' ? '' : 'none';
     var x = document.getElementById('algo');
@@ -72,10 +74,12 @@ function algorithm() {
     dict[process8_value] = process8_name;
     dict[process9_value] = process9_name;
     var dict1 = {};
-    if (value == 0) {
+    if (value == 0) 
+    {
         //do nothing                     
     }
-    else if (value == 1) {
+    else if (value == 1) 
+    {
         //fcfs
 
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
@@ -84,18 +88,21 @@ function algorithm() {
         var tat = [];
         var average_waiting_time=0,average_turn_time=0;
         wt[0] = 0;
-        for (var i = 1; i < number; i++) {
+        for (var i = 1; i < number; i++) 
+        {
             wt[i] = 0;
             for (j = 0; j < i; j++)
                 wt[i] += array[j];
         }
-        for (i = 0; i < number; i++) {
+        for (i = 0; i < number; i++) 
+        {
             tat[i] = array[i] + wt[i];
             avwt += wt[i];
             avtat += tat[i];
 
         }
-        for (var i = 0; i < array.length; i++) {
+        for (var i = 0; i < array.length; i++) 
+        {
             var xam = dict[array[i].toString()];
             var ram = wt[i];
             var lam = tat[i];
@@ -117,7 +124,8 @@ function algorithm() {
         ans5.innerHTML=average_turn_time;
     }
 
-    else if (value == 2) {
+    else if (value == 2) 
+    {
         //shj
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
         var average_time = average_time_num / number;
@@ -126,17 +134,20 @@ function algorithm() {
         var wt = [], avwt = 0, avtat = 0;
         var tat = [];
         wt[0] = 0;
-        for (var i = 1; i < number; i++) {
+        for (var i = 1; i < number; i++) 
+        {
             wt[i] = 0;
             for (j = 0; j < i; j++)
                 wt[i] += array[j];
         }
-        for (i = 0; i < number; i++) {
+        for (i = 0; i < number; i++) 
+        {
             tat[i] = array[i] + wt[i];
             avwt += wt[i];
             avtat += tat[i];
         }
-        for (var i = 0; i < array.length; i++) {
+        for (var i = 0; i < array.length; i++) 
+        {
             var xam = dict[array[i].toString()];
             var ram = wt[i];
             var lam = tat[i];
@@ -155,7 +166,8 @@ function algorithm() {
         ans4.innerHTML=average_waiting_time;
         ans5.innerHTML=average_turn_time;
     }
-    else if (value == 3) {
+    else if (value == 3) 
+    {
         //priority scheduling
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
         var average_time = average_time_num / number;
@@ -173,78 +185,50 @@ function algorithm() {
         var process8_priority = document.getElementById('priority_8').value * 1;
         var process9_priority = document.getElementById('priority_9').value * 1;
 
-
-        // var array1 = [process1_priority, process2_priority, process3_priority, process4_priority, process5_priority, process6_priority, process7_priority, process8_priority, process9_priority];
         var array1 = [];
-        // if (process1_priority != 0) {
-        //     array1.push(process1_priority);
-        //     dict1[process1_priority] = process1_name;
-        // }
-        // if (process2_priority != 0) {
-        //     dict1[process2_priority] = process2_name;
-        //     array1.push(process2_priority);
-        // }
-        // if (process3_priority != 0) {
-        //     dict1[process3_priority] = process3_name;
-        //     array1.push(process3_priority);
-        // }
-        // if (process4_priority != 0) {
-        //     dict1[process4_priority] = process4_name;
-        //     array1.push(process4_priority);
-        // }
-        // if (process5_priority != 0) {
-        //     dict1[process5_priority] = process5_name;
-        //     array1.push(process5_priority);
-        // }
-        // if (process6_priority != 0) {
-        //     dict1[process6_priority] = process6_name;
-        //     array1.push(process6_priority);
-        // }
-        // if (process7_priority != 0) {
-        //     dict1[process7_priority] = process7_name;
-        //     array1.push(process7_priority);
-        // }
-        // if (process8_priority != 0) {
-        //     dict1[process8_priority] = process8_name;
-        //     array1.push(process8_priority);
-        // }
-        // if (process9_priority != 0) {
-        //     dict1[process9_priority] = process9_name;
-        //     array1.push(process9_priority);
-        // }
-        if (process1_priority != 0) {
+        
+        if (process1_priority != 0) 
+        {
             array1.push(process1_priority);
             dict1[process1_priority] = process1_value;
         }
-        if (process2_priority != 0) {
+        if (process2_priority != 0) 
+        {
             dict1[process2_priority] = process2_value;
             array1.push(process2_priority);
         }
-        if (process3_priority != 0) {
+        if (process3_priority != 0) 
+        {
             dict1[process3_priority] = process3_value;
             array1.push(process3_priority);
         }
-        if (process4_priority != 0) {
+        if (process4_priority != 0) 
+        {
             dict1[process4_priority] = process4_value;
             array1.push(process4_priority);
         }
-        if (process5_priority != 0) {
+        if (process5_priority != 0) 
+        {
             dict1[process5_priority] = process5_value;
             array1.push(process5_priority);
         }
-        if (process6_priority != 0) {
+        if (process6_priority != 0) 
+        {
             dict1[process6_priority] = process6_value;
             array1.push(process6_priority);
         }
-        if (process7_priority != 0) {
+        if (process7_priority != 0) 
+        {
             dict1[process7_priority] = process7_value;
             array1.push(process7_priority);
         }
-        if (process8_priority != 0) {
+        if (process8_priority != 0) 
+        {
             dict1[process8_priority] = process8_value;
             array1.push(process8_priority);
         }
-        if (process9_priority != 0) {
+        if (process9_priority != 0) 
+        {
             dict1[process9_priority] = process9_value;
             array1.push(process9_priority);
         }
@@ -252,17 +236,20 @@ function algorithm() {
         var wt = [], avwt = 0, avtat = 0;
         var tat = []
         wt[0] = 0;
-        for (var i = 1; i < number; i++) {
+        for (var i = 1; i < number; i++) 
+        {
             wt[i] = 0;
             for (j = 0; j < i; j++)
                 wt[i] += dict1[array1[j]];
         }
-        for (i = 0; i < number; i++) {
+        for (i = 0; i < number; i++) 
+        {
             tat[i] = dict1[array1[i]] + wt[i];
             avwt += wt[i];
             avtat += tat[i];
         }
-        for (var i = 0; i < array1.length; i++) {
+        for (var i = 0; i < array1.length; i++) 
+        {
             var xam = dict1[array1[i].toString()];
             var ram = wt[i];
             var lam = tat[i];
@@ -280,17 +267,9 @@ function algorithm() {
         ans3.innerHTML = turn_around_time;
         ans4.innerHTML=average_waiting_time;
         ans5.innerHTML=average_turn_time;
-		
-        // for (var i = 0; i < array1.length; i++) {
-        //     var xam = dict1[array1[i].toString()];
-        //     process_order = process_order + "," + xam;
-        // }
-
-        // ans.innerHTML = average_time;
-        // ans1.innerHTML = process_order;
-
     }
-    else if (value == 4) {
+    else if (value == 4) 
+    {
         //round robin
         var yourUl3 = document.getElementById("round_form");
         yourUl3.style.display = yourUl3.style.display === 'none' ? '' : 'none';
@@ -311,7 +290,8 @@ function algorithm() {
         var processes = [], n = number, bt = [], wt = [], quantum, tat = [], process_order = "start";
         var turn_around_time = "start", waiting_time = "start";
         var average_waiting_time=0,average_turn_time=0;
-        function findWaitingTime() {
+        function findWaitingTime() 
+        {
             // Make a copy of burst times bt[] to store remaining
             // burst times.
             console.log("I am in findWaitingTime");
@@ -323,16 +303,20 @@ function algorithm() {
 
             // Keep traversing processes in round robin manner
             // until all of them are not done.
-            while (1) {
+            while (1) 
+            {
                 var done = true;
                 // Traverse all processes one by one repeatedly
-                for (var i = 0; i < n; i++) {
+                for (var i = 0; i < n; i++) 
+                {
                     // If burst time of a process is greater than 0
                     // then only need to process further
-                    if (rem_bt[i] > 0) {
+                    if (rem_bt[i] > 0) 
+                    {
                         done = false; // There is a pending process
 
-                        if (rem_bt[i] > quantum) {
+                        if (rem_bt[i] > quantum) 
+                        {
                             // Increase the value of t i.e. shows
                             // how much time a process has been processed
                             t += quantum;
@@ -344,7 +328,8 @@ function algorithm() {
 
                         // If burst time is smaller than or equal to
                         // quantum. Last cycle for this process
-                        else {
+                        else 
+                        {
                             // Increase the value of t i.e. shows
                             // how much time a process has been processed
                             t = t + rem_bt[i];
@@ -366,19 +351,22 @@ function algorithm() {
             }
         }
         // Function to calculate turn around time
-        function findTurnAroundTime() {
-            // calculating turnaround time by adding
+        function findTurnAroundTime() 
+        {
+            // calculating turn around time by adding
             // bt[i] + wt[i]
             console.log("I am in findAverageTime");
 
-            for (var i = 0; i < n; i++) {
+            for (var i = 0; i < n; i++) 
+            {
                 tat[i] = bt[i] + wt[i];
                 turn_around_time = turn_around_time + "," + tat[i];
                 waiting_time = waiting_time + "," + wt[i];
             }
         }
         // Function to calculate average time
-        function findavgTime() {
+        function findavgTime() 
+        {
             var total_wt = 0, total_tat = 0;
             console.log("I am in findavgTime");
 
@@ -389,11 +377,9 @@ function algorithm() {
             findTurnAroundTime();
 
             // Display processes along with all details
-
-
-            // Calculate total waiting time and total turn
-            // around time
-            for (var i = 0; i < n; i++) {
+            // Calculate total waiting time and total turn around time
+            for (var i = 0; i < n; i++) 
+            {
                 total_wt = total_wt + wt[i];
                 total_tat = total_tat + tat[i];
             }
@@ -403,26 +389,19 @@ function algorithm() {
             console.log(total_wt);
             console.log(total_tat);
         }
-
         var quantum = time_quantum;
         console.log(quantum + " is time quantum");
         for (var i = 0; i < n; i++)
             bt[i] = array[i];
         for (var i = 0; i < n; i++)
             processes[i] = dict[array[i].toString()];
-        if (time_quantum != 0) {
+        if (time_quantum != 0) 
+        {
             findavgTime();
             ans1.innerHTML = process_order;
             ans2.innerHTML = waiting_time;
             ans3.innerHTML = turn_around_time;
         }
-        // else {
-        // //quantum = prompt("Please enter quantum time")*1;
-        // findavgTime();
-        // ans1.innerHTML = process_order;
-        // ans2.innerHTML = waiting_time;
-        // ans3.innerHTML = turn_around_time; }
-
         //Ends here
     }
 
