@@ -115,7 +115,7 @@ function algorithm()
 
         average_waiting_time=average_waiting_time/number;
         average_turn_time=average_turn_time/number;
-        ans.innerHTML = average_time;
+        ans.innerHTML = average_turn_time-average_waiting_time;
         ans1.innerHTML = process_order;
         ans2.innerHTML = waiting_time;
         ans3.innerHTML = turn_around_time;
@@ -158,7 +158,7 @@ function algorithm()
         }
         average_waiting_time=average_waiting_time/number;
         average_turn_time=average_turn_time/number;
-        ans.innerHTML = average_time;
+        ans.innerHTML = average_turn_time-average_waiting_time;
         ans1.innerHTML = process_order;
         ans2.innerHTML = waiting_time;
         ans3.innerHTML = turn_around_time;
@@ -259,7 +259,7 @@ function algorithm()
         }
         average_waiting_time=average_waiting_time/number;
         average_turn_time=average_turn_time/number;
-        ans.innerHTML = average_time;
+        ans.innerHTML = average_turn_time-average_waiting_time;
         ans1.innerHTML = process_order;
         ans2.innerHTML = waiting_time;
         ans3.innerHTML = turn_around_time;
@@ -371,7 +371,7 @@ function algorithm()
                 total_wt = total_wt + wt[i];
                 total_tat = total_tat + tat[i];
             }
-            ans.innerHTML = average_time;
+            ans.innerHTML = (total_tat - total_wt)/number;
             ans4.innerHTML = total_wt / number;
             ans5.innerHTML=total_tat/number;
             console.log(total_wt);
