@@ -74,14 +74,12 @@ function algorithm()
     dict[process8_value] = process8_name;
     dict[process9_value] = process9_name;
     var dict1 = {};
-    if (value == 0) 
+    if (value == 0) //NONE
     {
         //do nothing                     
     }
-    else if (value == 1) 
+    else if (value == 1) //FCFS
     {
-        //fcfs
-
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
         var average_time = average_time_num / number;
         var wt = [], avwt = 0, avtat = 0;
@@ -101,7 +99,8 @@ function algorithm()
             avtat += tat[i];
 
         }
-        for (var i = 0; i < array.length; i++) 
+        //for (var i = 0; i < array.length; i++) 
+        for (var i = 0; i < number; i++)
         {
             var xam = dict[array[i].toString()];
             var ram = wt[i];
@@ -124,9 +123,8 @@ function algorithm()
         ans5.innerHTML=average_turn_time;
     }
 
-    else if (value == 2) 
+    else if (value == 2) //SJF
     {
-        //shj
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
         var average_time = average_time_num / number;
         var average_waiting_time=0,average_turn_time=0;
@@ -146,7 +144,8 @@ function algorithm()
             avwt += wt[i];
             avtat += tat[i];
         }
-        for (var i = 0; i < array.length; i++) 
+        //for (var i = 0; i < array.length; i++) 
+        for (var i = 0; i < number; i++) 
         {
             var xam = dict[array[i].toString()];
             var ram = wt[i];
@@ -166,9 +165,8 @@ function algorithm()
         ans4.innerHTML=average_waiting_time;
         ans5.innerHTML=average_turn_time;
     }
-    else if (value == 3) 
+    else if (value == 3) //Priority Scheduling
     {
-        //priority scheduling
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
         var average_time = average_time_num / number;
         var average_waiting_time=0,average_turn_time=0;
@@ -292,8 +290,7 @@ function algorithm()
         var average_waiting_time=0,average_turn_time=0;
         function findWaitingTime() 
         {
-            // Make a copy of burst times bt[] to store remaining
-            // burst times.
+            // Make a copy of burst times bt[] to store remaining burst times.
             console.log("I am in findWaitingTime");
             var rem_bt = [];
             for (var i = 0; i < n; i++)
@@ -301,46 +298,38 @@ function algorithm()
 			
             var t = 0; // Current time
 
-            // Keep traversing processes in round robin manner
-            // until all of them are not done.
+            // Keep traversing processes in round robin manner until all of them are not done.
             while (1) 
             {
                 var done = true;
                 // Traverse all processes one by one repeatedly
                 for (var i = 0; i < n; i++) 
                 {
-                    // If burst time of a process is greater than 0
-                    // then only need to process further
+                    // If burst time of a process is greater than 0 then only need to process further
                     if (rem_bt[i] > 0) 
                     {
                         done = false; // There is a pending process
 
                         if (rem_bt[i] > quantum) 
                         {
-                            // Increase the value of t i.e. shows
-                            // how much time a process has been processed
+                            // Increase the value of t i.e. shows how much time a process has been processed
                             t += quantum;
 
-                            // Decrease the burst_time of current process
-                            // by quantum
+                            // Decrease the burst_time of current process by quantum
                             rem_bt[i] -= quantum;
                         }
 
-                        // If burst time is smaller than or equal to
-                        // quantum. Last cycle for this process
+                        // If burst time is smaller than or equal to quantum. Last cycle for this process
                         else 
                         {
-                            // Increase the value of t i.e. shows
-                            // how much time a process has been processed
+                            // Increase the value of t i.e. shows how much time a process has been processed
                             t = t + rem_bt[i];
 
-                            // Waiting time is current time minus time
-                            // used by this process
+                            // Waiting time is current time minus time used by this process
                             wt[i] = t - bt[i] - array2[1];
                             process_order = process_order + "," + dict[array[i].toString()];
 
-                            // As the process gets fully executed
-                            // make its remaining burst time = 0
+                            // As the process gets fully executed make its remaining burst time = 0
                             rem_bt[i] = 0;
                         }
                     }
@@ -353,8 +342,7 @@ function algorithm()
         // Function to calculate turn around time
         function findTurnAroundTime() 
         {
-            // calculating turn around time by adding
-            // bt[i] + wt[i]
+            // calculating turn around time by adding bt[i] + wt[i]
             console.log("I am in findAverageTime");
 
             for (var i = 0; i < n; i++) 
@@ -404,6 +392,4 @@ function algorithm()
         }
         //Ends here
     }
-
 }
-
